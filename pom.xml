@@ -32,10 +32,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
 		
 		<dependency>
 			<groupId>com.h2database</groupId>
@@ -47,6 +43,21 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-tomcat</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<scope>provided</scope>
+</dependency>
 	</dependencies>
 	
 	<build>
@@ -57,25 +68,6 @@
 			</plugin>
 		</plugins>
 	</build>
-	
-	    <profiles>
-        <profile>
-            <id>openshift</id>
-            <build>
-                <finalName>${project.artifactId}</finalName>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-war-plugin</artifactId>
-                        <version>2.1.1</version>
-                        <configuration>
-                            <outputDirectory>webapps</outputDirectory>
-                            <warName>ROOT</warName>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles> 
 	
 
 </project>
