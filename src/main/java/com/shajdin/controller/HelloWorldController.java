@@ -16,6 +16,10 @@ public class HelloWorldController {
 	@Autowired
 	private UserService userService;
 	
+	@RequestMapping("hello")
+	public String hellobez(){
+		return "Hello world !!!";
+	}	
 	@RequestMapping("/hello")
 	public String hello(){
 		return "Hello world vvebthnzmu !!!";
